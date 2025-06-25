@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1092882798914",
+    "project_id": "tastyroots-427b6",
+    "storage_bucket": "tastyroots-427b6.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092882798914:android:d5e841a60e7c5be96410db",
+        "android_client_info": {
+          "package_name": "com.s23010743.tastyroots"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0_YVrPcUgd3p3cmJrvccOQYlQfpzDzxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1092882798914:android:2e29dffd668f50116410db",
+        "android_client_info": {
+          "package_name": "com.s23010743.tatyrootsfinal"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB0_YVrPcUgd3p3cmJrvccOQYlQfpzDzxU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

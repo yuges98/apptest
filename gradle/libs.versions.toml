@@ -1,0 +1,50 @@
+# gradle/libs.versions.toml
+
+[versions]
+desugarJdkLibs = "2.1.3" # This is now the required version. Looks good.
+
+agp = "8.10.1"
+kotlin = "1.9.22" # Ensure this matches your actual Kotlin plugin version
+
+junit = "4.13.2"
+junitVersion = "1.2.1"
+espressoCore = "3.6.1"
+
+# Reconfirm these AndroidX versions for stability; revert to latest stable if these are previews
+# Current stable versions as of June 2025:
+appcompat = "1.7.1" # Your current value: "1.7.1". 1.6.1 is the latest stable. Consider updating.
+material = "1.12.0" # This is the current latest stable. Fine.
+activity = "1.10.1" # Your current value: "1.10.1". 1.8.0 is the latest stable for activity-ktx. Consider updating.
+constraintlayout = "2.2.1" # Your current value: "2.2.1". 2.1.4 is the latest stable. Consider updating.
+
+googleServicesPlugin = "4.4.2"
+firebaseBom = "33.15.0" # Make sure this is the latest stable BoM version from Firebase docs
+firebaseCrashlyticsPlugin = "3.0.4"
+playServicesTasks = "18.3.0"
+playServicesBasement = "18.7.0"
+# firebaseAuth = "23.2.1" # <--- REMOVE THIS LINE! It's not needed when using BoM.
+
+[libraries]
+desugar-jdk-libs = { group = "com.android.tools", name = "desugar_jdk_libs", version.ref = "desugarJdkLibs" }
+junit = { group = "junit", name = "junit", version.ref = "junit" }
+ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
+espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espressoCore" }
+appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
+material = { group = "com.google.android.material", name = "material", version.ref = "material" }
+activity = { group = "androidx.activity", name = "activity", version.ref = "activity" }
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+
+firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+firebase-firestore = { group = "com.google.firebase", name = "firebase-firestore" }
+# Corrected: REMOVE 'version.ref = "firebaseAuth"' for BoM-managed libraries
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" } # <--- CORRECTED LINE!
+
+play-services-tasks = { group = "com.google.android.gms", name = "play-services-tasks", version.ref = "playServicesTasks" }
+play-services-basement = { group = "com.google.android.gms", name = "play-services-basement", version.ref = "playServicesBasement" }
+
+[plugins]
+android-application = { id = "com.android.application", version.ref = "agp" }
+google-services = { id = "com.google.gms.google-services", version.ref = "googleServicesPlugin" }
+firebase-crashlytics-gradle = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashlyticsPlugin" }
+kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
