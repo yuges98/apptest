@@ -75,8 +75,8 @@ public class LoginOptionActivity extends AppCompatActivity {
      * Note: SignUpPage will be created based on your next UI.
      */
     private void navigateToSignUpPage() {
-        //Intent intent = new Intent(LoginOptionActivity.this, SignUpPage.class);
-        //startActivity(intent);
+        Intent intent = new Intent(LoginOptionActivity.this, SignUpPage.class);
+        startActivity(intent);
         // Optional: finish() if you don't want to come back to this activity
         // finish();
     }

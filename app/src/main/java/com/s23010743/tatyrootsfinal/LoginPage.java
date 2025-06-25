@@ -45,19 +45,18 @@ public class LoginPage extends AppCompatActivity {
     }
 
     /**
-     * Called when the activity is first created or recreated.
-     * Check if user is already signed in (non-null) and update UI accordingly.
+     * Removed onStart() auto-redirection logic from LoginPage.
+     * LoginPage should always show the login form when explicitly navigated to.
+     * Auto-redirection for already logged-in users should happen in the app's main entry point (e.g., MainActivity).
      */
-    @Override
-    public void onStart() {
-        super.onStart();
-        // Check if user is signed in (non-null) and update UI accordingly.
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        if (currentUser != null) {
-            // User is already logged in, navigate to Home page
-            navigateToHomePage();
-        }
-    }
+    // @Override
+    // public void onStart() {
+    //     super.onStart();
+    //     FirebaseUser currentUser = mAuth.getCurrentUser();
+    //     if (currentUser != null) {
+    //         navigateToHomePage();
+    //     }
+    // }
 
     /**
      * Initializes all UI elements by finding their respective IDs in the layout.
@@ -116,10 +115,9 @@ public class LoginPage extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             FirebaseUser user = mAuth.getCurrentUser();
                             Toast.makeText(LoginPage.this, "Authentication Success. Welcome " + user.getEmail(), Toast.LENGTH_SHORT).show();
-                            navigateToHomePage();
+                            navigateToHomePage(); // Only navigate to home page AFTER successful login attempt
                         } else {
                             // If sign in fails, display a message to the user.
-                            // Get the specific error message from Firebase
                             String errorMessage = task.getException() != null ? task.getException().getMessage() : "Unknown error.";
                             Toast.makeText(LoginPage.this, getString(R.string.login_failed_message, errorMessage), Toast.LENGTH_LONG).show();
                         }
@@ -132,16 +130,15 @@ public class LoginPage extends AppCompatActivity {
      * Clears the back stack to prevent returning to login pages.
      */
     private void navigateToHomePage() {
-        //Intent intent = new Intent(LoginPage.this, HomePage.class);
+        Intent intent = new Intent(LoginPage.this, HomePage.class); // Use the correct HomePage.class
         // Flags to clear the back stack so user can't go back to login/welcome
-       // intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        //startActivity(intent);
-        //finish(); // Finish current activity
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish(); // Finish current activity
     }
 
     /**
      * Navigates to the Forgot Password Page.
-     * Note: ForgotPasswordActivity will be created later.
      */
     private void navigateToForgotPasswordPage() {
         // Placeholder for ForgotPasswordActivity

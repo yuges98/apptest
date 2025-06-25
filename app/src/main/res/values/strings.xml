@@ -1,3 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Tasty Roots</string>
     <string name="welcome_delivery_image_description">Delivery person on a scooter</string>
@@ -8,5 +9,10 @@
     <string name="hint_email_address">E-mail Address</string>
     <string name="hint_password">Password</string>
     <string name="forgot_login_details">Forgot login details ?</string>
-    <string name="login_failed_message">Login Failed: %1$s</string> <string name="empty_fields_error">Email and Password cannot be empty.</string>
+    <string name="login_failed_message">Login Failed: %1$s</string>
+    <string name="empty_fields_error">Email and Password cannot be empty.</string>
+
+    <!-- New Strings for SignUpPage -->
+    <string name="hint_phone_number">Phone number</string>
+    <string name="hint_nick_name">Nick Name</string>
 </resources>
