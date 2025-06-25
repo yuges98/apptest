@@ -15,4 +15,18 @@
     <!-- New Strings for SignUpPage -->
     <string name="hint_phone_number">Phone number</string>
     <string name="hint_nick_name">Nick Name</string>
+    <!-- ... existing strings ... -->
+
+    <!-- Strings for Health Status Page -->
+    <string name="age_limit_label">Age Limit</string>
+    <string name="health_status_title">Health Status</string>
+    <string name="condition_pressure">Pressure</string>
+    <string name="condition_sugar">Sugar</string>
+    <string name="condition_cholesterol">Cholesterol</string>
+    <string name="condition_ulcer">Ulcer</string>
+    <string name="level_high">High</string>
+    <string name="level_low">Low</string>
+    <string name="button_back_text">Back</string>
+    <string name="button_next_text">Next</string>
+    <string name="hint_please_type_here">Please Type Here</string>
 </resources>

@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tasty_roots_primary_background"
+    tools:context=".HealthStatusActivity">
+
+    <!-- Top "Select Here" text -->
+    <TextView
+        android:id="@+id/textView_select_here"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Select Here"
+        android:textColor="@color/tasty_roots_accent_yellow"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Age Limit Input -->
+    <TextView
+        android:id="@+id/textView_age_limit_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="Age Limit"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textInputLayout_age_limit"
+        app:layout_constraintTop_toBottomOf="@+id/textView_select_here" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout_age_limit"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="64dp"
+        android:layout_marginTop="8dp"
+        app:boxStrokeColor="@color/white"
+        app:hintTextColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView_age_limit_label">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/editText_age_limit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <!-- Health Status Title -->
+    <TextView
+        android:id="@+id/textView_health_status_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Health Status"
+        android:textColor="@color/tasty_roots_accent_yellow"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout_age_limit" />
+
+    <!-- Health Condition Checkboxes and Radio Buttons -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginHorizontal="32dp"
+        android:layout_marginTop="24dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toTopOf="@+id/linearLayout_buttons"
+        app:layout_constraintTop_toBottomOf="@+id/textView_health_status_title">
+
+        <!-- Pressure Checkbox and Radio Group -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+            <CheckBox
+                android:id="@+id/checkbox_pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Pressure"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:buttonTint="@color/white"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup_pressure"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="32dp"
+                android:visibility="gone" > <!-- Hidden by default -->
+                <RadioButton
+                    android:id="@+id/radio_pressure_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/light_blue"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="16dp"/>
+                <RadioButton
+                    android:id="@+id/radio_pressure_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/pink"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Sugar Checkbox and Radio Group -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+            <CheckBox
+                android:id="@+id/checkbox_sugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Sugar"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:buttonTint="@color/white"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup_sugar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="32dp"
+                android:visibility="gone" > <!-- Hidden by default -->
+                <RadioButton
+                    android:id="@+id/radio_sugar_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/light_blue"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="16dp"/>
+                <RadioButton
+                    android:id="@+id/radio_sugar_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/pink"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Cholesterol Checkbox and Radio Group -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="16dp">
+            <CheckBox
+                android:id="@+id/checkbox_cholesterol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Cholesterol"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:buttonTint="@color/white"/>
+
+            <RadioGroup
+                android:id="@+id/radioGroup_cholesterol"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginStart="32dp"
+                android:visibility="gone" > <!-- Hidden by default -->
+                <RadioButton
+                    android:id="@+id/radio_cholesterol_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="High"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/light_blue"
+                    android:textSize="16sp"
+                    android:layout_marginEnd="16dp"/>
+                <RadioButton
+                    android:id="@+id/radio_cholesterol_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Low"
+                    android:textColor="@color/white"
+                    android:buttonTint="@color/pink"
+                    android:textSize="16sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <!-- Ulcer Checkbox (no nested options) -->
+        <CheckBox
+            android:id="@+id/checkbox_ulcer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Ulcer"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:buttonTint="@color/white"/>
+
+    </LinearLayout>
+
+    <!-- Bottom Buttons (Back and Next) -->
+    <LinearLayout
+        android:id="@+id/linearLayout_buttons"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginBottom="32dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <Button
+            android:id="@+id/button_back"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="16dp"
+            android:backgroundTint="@color/tasty_roots_button_background"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="Back"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp" />
+
+        <Button
+            android:id="@+id/button_next"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:backgroundTint="@color/tasty_roots_button_background"
+            android:paddingHorizontal="32dp"
+            android:paddingVertical="12dp"
+            android:text="Next"
+            android:textAllCaps="false"
+            android:textColor="@android:color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
