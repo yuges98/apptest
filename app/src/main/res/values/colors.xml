@@ -9,6 +9,9 @@
     <color name="white">#FFFFFFFF</color>
     <!-- ... existing colors ... -->
 
+    <!-- NEW: Colors for Health Tips Cards -->
+    <color name="tasty_roots_card_background">#E0FFFFFF</color> <!-- Semi-transparent white or light grey -->
+    <color name="text_color_card_content">#333333</color> <!-- Dark gray for card text -->
     <!-- New colors for Health Status page RadioButtons -->
     <color name="light_blue">#ADD8E6</color>
     <color name="pink">#FFC0CB</color>

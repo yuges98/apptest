@@ -54,7 +54,6 @@ public class HomePage extends AppCompatActivity {
         buttonDesiredFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to the DesiredFoodMenuActivity
                 Intent intent = new Intent(HomePage.this, DesiredFoodMenuActivity.class);
                 startActivity(intent);
             }
@@ -63,7 +62,6 @@ public class HomePage extends AppCompatActivity {
         buttonHealthyFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to the HealthStatusActivity
                 Intent intent = new Intent(HomePage.this, HealthStatusActivity.class);
                 startActivity(intent);
             }
@@ -72,7 +70,6 @@ public class HomePage extends AppCompatActivity {
         buttonMakeMyFood.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to the IngredientSelectionActivity
                 Intent intent = new Intent(HomePage.this, IngredientSelectionActivity.class);
                 startActivity(intent);
             }
@@ -88,7 +85,9 @@ public class HomePage extends AppCompatActivity {
         buttonHealthyTips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomePage.this, "Healthy Tips functionality coming soon!", Toast.LENGTH_SHORT).show();
+                // Navigate to the HealthTipsActivity
+                Intent intent = new Intent(HomePage.this, HealthTipsActivity.class);
+                startActivity(intent);
             }
         });
     }

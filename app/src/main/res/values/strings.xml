@@ -16,6 +16,8 @@
     <string name="hint_phone_number">Phone number</string>
     <string name="hint_nick_name">Nick Name</string>
     <!-- ... existing strings ... -->
+    <string name="health_tips_title">Health Tips</string>
+    <string name="button_refresh_tips">Refresh Tips</string>
 
     <!-- Strings for Health Status Page -->
     <string name="age_limit_label">Age Limit</string>

@@ -43,7 +43,9 @@
         <activity android:name=".IngredientSelectionActivity"
             android:exported="true">
         </activity>
-
+        <activity android:name=".HealthTipsActivity"
+            android:exported="true">
+        </activity>
         <activity android:name=".SignUpPage"
             android:exported="true">
         </activity>
