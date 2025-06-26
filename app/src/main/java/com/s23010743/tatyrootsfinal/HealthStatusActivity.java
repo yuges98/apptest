@@ -7,188 +7,178 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.Toast;
-import android.widget.RadioButton; // Import RadioButton
-import android.widget.RadioGroup; // Import RadioGroup
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class HealthStatusActivity extends AppCompatActivity {
 
-    // UI Elements
-    private EditText editTextAge;
-    private CheckBox checkBoxUlcer;
+    private EditText editTextAgeLimit;
     private CheckBox checkBoxPressure;
-    private RadioGroup radioGroupPressure;
-    private RadioButton radioPressureHigh;
-    private RadioButton radioPressureLow;
     private CheckBox checkBoxSugar;
-    private RadioGroup radioGroupSugar;
-    private RadioButton radioSugarHigh;
-    private RadioButton radioSugarLow;
     private CheckBox checkBoxCholesterol;
-    private RadioGroup radioGroupCholesterol;
-    private RadioButton radioCholesterolHigh;
-    private RadioButton radioCholesterolLow;
+    private CheckBox checkBoxUlcer; // Declare Ulcer CheckBox
     private Button buttonBack;
     private Button buttonNext;
+
+    private RadioGroup radioGroupPressureLevel;
+    private RadioButton radioLowPressure;
+    private RadioButton radioHighPressure;
+
+    private RadioGroup radioGroupSugarLevel;
+    private RadioButton radioLowSugar;
+    private RadioButton radioHighSugar;
+
+    private RadioGroup radioGroupCholesterolLevel;
+    private RadioButton radioLowCholesterol;
+    private RadioButton radioHighCholesterol;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_health_status);
 
-        // Initialize UI elements
         initViews();
-
-        // Set up listeners for checkboxes and buttons
         setupListeners();
     }
 
-    /**
-     * Initializes all UI elements by finding their respective IDs in the layout.
-     */
     private void initViews() {
-        editTextAge = findViewById(R.id.editText_age_limit);
-        checkBoxUlcer = findViewById(R.id.checkbox_ulcer);
-        checkBoxPressure = findViewById(R.id.checkbox_pressure);
-        radioGroupPressure = findViewById(R.id.radioGroup_pressure);
-        radioPressureHigh = findViewById(R.id.radio_pressure_high);
-        radioPressureLow = findViewById(R.id.radio_pressure_low);
-        checkBoxSugar = findViewById(R.id.checkbox_sugar);
-        radioGroupSugar = findViewById(R.id.radioGroup_sugar);
-        radioSugarHigh = findViewById(R.id.radio_sugar_high);
-        radioSugarLow = findViewById(R.id.radio_sugar_low);
-        checkBoxCholesterol = findViewById(R.id.checkbox_cholesterol);
-        radioGroupCholesterol = findViewById(R.id.radioGroup_cholesterol);
-        radioCholesterolHigh = findViewById(R.id.radio_cholesterol_high);
-        radioCholesterolLow = findViewById(R.id.radio_cholesterol_low);
+        editTextAgeLimit = findViewById(R.id.editText_age_limit);
+        checkBoxPressure = findViewById(R.id.checkBox_pressure);
+        checkBoxSugar = findViewById(R.id.checkBox_sugar);
+        checkBoxCholesterol = findViewById(R.id.checkBox_cholesterol);
+        checkBoxUlcer = findViewById(R.id.checkBox_ulcer); // Initialize Ulcer CheckBox
         buttonBack = findViewById(R.id.button_back);
         buttonNext = findViewById(R.id.button_next);
+
+        // Pressure Level Radio Group
+        radioGroupPressureLevel = findViewById(R.id.radioGroup_pressure_level);
+        radioLowPressure = findViewById(R.id.radio_low_pressure);
+        radioHighPressure = findViewById(R.id.radio_high_pressure);
+
+        // Sugar Level Radio Group
+        radioGroupSugarLevel = findViewById(R.id.radioGroup_sugar_level);
+        radioLowSugar = findViewById(R.id.radio_low_sugar);
+        radioHighSugar = findViewById(R.id.radio_high_sugar);
+
+        // Cholesterol Level Radio Group
+        radioGroupCholesterolLevel = findViewById(R.id.radioGroup_cholesterol_level);
+        radioLowCholesterol = findViewById(R.id.radio_low_cholesterol);
+        radioHighCholesterol = findViewById(R.id.radio_high_cholesterol);
+
+        // Initial state of RadioGroups (hidden)
+        radioGroupPressureLevel.setVisibility(View.GONE);
+        radioGroupSugarLevel.setVisibility(View.GONE);
+        radioGroupCholesterolLevel.setVisibility(View.GONE);
     }
 
-    /**
-     * Sets up click listeners and change listeners for UI elements.
-     */
     private void setupListeners() {
-        // Listeners for main checkboxes to enable/disable their respective RadioGroups
-        checkBoxPressure.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            radioGroupPressure.setVisibility(isChecked ? View.VISIBLE : View.GONE);
-            if (!isChecked) { // Clear selection if checkbox is unchecked
-                radioGroupPressure.clearCheck();
-            }
-        });
-
-        checkBoxSugar.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            radioGroupSugar.setVisibility(isChecked ? View.VISIBLE : View.GONE);
-            if (!isChecked) {
-                radioGroupSugar.clearCheck();
-            }
-        });
-
-        checkBoxCholesterol.setOnCheckedChangeListener((buttonView, isChecked) -> {
-            radioGroupCholesterol.setVisibility(isChecked ? View.VISIBLE : View.GONE);
-            if (!isChecked) {
-                radioGroupCholesterol.clearCheck();
-            }
-        });
-
-        // Initial state: hide radio groups
-        radioGroupPressure.setVisibility(View.GONE);
-        radioGroupSugar.setVisibility(View.GONE);
-        radioGroupCholesterol.setVisibility(View.GONE);
-
-        // Listener for the "Back" button
         buttonBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                finish(); // Go back to the previous activity (HomePage)
+                finish(); // Go back to the previous activity (e.g., HomePage)
             }
         });
 
-        // Listener for the "Next" button
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                collectAndDisplayHealthData();
-                // In a real app, you would process or save this data and then navigate
-                // For example: Intent intent = new Intent(HealthStatusActivity.this, HealthyFoodSuggestionsActivity.class);
-                // startActivity(intent);
+                String ageLimitStr = editTextAgeLimit.getText().toString().trim();
+                if (TextUtils.isEmpty(ageLimitStr)) {
+                    Toast.makeText(HealthStatusActivity.this, "Please enter your age limit.", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+
+                // Priority for specific health conditions
+                // Check for "Pressure" conditions and redirect
+                if (checkBoxPressure.isChecked()) {
+                    if (radioLowPressure.isChecked()) {
+                        Intent intent = new Intent(HealthStatusActivity.this, LowBPFoodMenuActivity.class);
+                        startActivity(intent);
+                        return;
+                    } else if (radioHighPressure.isChecked()) {
+                        Intent intent = new Intent(HealthStatusActivity.this, HighBPFoodMenuActivity.class);
+                        startActivity(intent);
+                        return;
+                    } else {
+                        Toast.makeText(HealthStatusActivity.this, "Please select Pressure level (Low/High).", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                // Check for "Sugar" conditions and redirect
+                if (checkBoxSugar.isChecked()) {
+                    if (radioLowSugar.isChecked()) {
+                        Intent intent = new Intent(HealthStatusActivity.this, LowSugarFoodMenuActivity.class);
+                        startActivity(intent);
+                        return;
+                    } else if (radioHighSugar.isChecked()) {
+                        Intent intent = new Intent(HealthStatusActivity.this, HighSugarFoodMenuActivity.class);
+                        startActivity(intent);
+                        return;
+                    } else {
+                        Toast.makeText(HealthStatusActivity.this, "Please select Sugar level (Low/High).", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                // Check for "Cholesterol" conditions and redirect
+                if (checkBoxCholesterol.isChecked()) {
+                    if (radioLowCholesterol.isChecked()) {
+                        Intent intent = new Intent(HealthStatusActivity.this, LowCholesterolFoodMenuActivity.class);
+                        startActivity(intent);
+                        return;
+                    } else if (radioHighCholesterol.isChecked()) {
+                        Intent intent = new Intent(HealthStatusActivity.this, HighCholesterolFoodMenuActivity.class);
+                        startActivity(intent);
+                        return;
+                    } else {
+                        Toast.makeText(HealthStatusActivity.this, "Please select Cholesterol level (Low/High).", Toast.LENGTH_SHORT).show();
+                        return;
+                    }
+                }
+
+                // NEW: Check for "Ulcer" condition and redirect
+                if (checkBoxUlcer.isChecked()) {
+                    Intent intent = new Intent(HealthStatusActivity.this, UlcerFoodMenuActivity.class);
+                    startActivity(intent);
+                    return;
+                }
+
+                // If no specific health condition is selected or matched, go to the general menu
+                Intent intent = new Intent(HealthStatusActivity.this, DesiredFoodMenuActivity.class);
+                startActivity(intent);
+                // finish(); // Optionally finish HealthStatusActivity if you don't want to come back
             }
         });
-    }
 
-    /**
-     * Collects all entered health data and displays it in a Toast message.
-     * In a real application, this data would be saved or used for filtering.
-     */
-    private void collectAndDisplayHealthData() {
-        String ageStr = editTextAge.getText().toString().trim();
-        int age = -1;
-        if (!TextUtils.isEmpty(ageStr)) {
-            try {
-                age = Integer.parseInt(ageStr);
-            } catch (NumberFormatException e) {
-                Toast.makeText(this, "Please enter a valid age.", Toast.LENGTH_SHORT).show();
-                return;
+        // Listener for Pressure CheckBox
+        checkBoxPressure.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            radioGroupPressureLevel.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            if (!isChecked) {
+                radioGroupPressureLevel.clearCheck();
             }
-        } else {
-            Toast.makeText(this, "Please enter your age.", Toast.LENGTH_SHORT).show();
-            return;
-        }
+        });
 
-        StringBuilder healthSummary = new StringBuilder();
-        healthSummary.append("Age: ").append(age).append("\n");
-        healthSummary.append("Health Status:\n");
-
-        if (checkBoxUlcer.isChecked()) {
-            healthSummary.append("- Ulcer: Yes\n");
-        } else {
-            healthSummary.append("- Ulcer: No\n");
-        }
-
-        healthSummary.append("- Pressure: ");
-        if (checkBoxPressure.isChecked()) {
-            int selectedPressureId = radioGroupPressure.getCheckedRadioButtonId();
-            if (selectedPressureId == R.id.radio_pressure_high) {
-                healthSummary.append("High\n");
-            } else if (selectedPressureId == R.id.radio_pressure_low) {
-                healthSummary.append("Low\n");
-            } else {
-                healthSummary.append("Selected but not specified (High/Low)\n"); // Should not happen with proper UX
+        // Listener for Sugar CheckBox
+        checkBoxSugar.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            radioGroupSugarLevel.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            if (!isChecked) {
+                radioGroupSugarLevel.clearCheck();
             }
-        } else {
-            healthSummary.append("Not selected\n");
-        }
+        });
 
-        healthSummary.append("- Sugar: ");
-        if (checkBoxSugar.isChecked()) {
-            int selectedSugarId = radioGroupSugar.getCheckedRadioButtonId();
-            if (selectedSugarId == R.id.radio_sugar_high) {
-                healthSummary.append("High\n");
-            } else if (selectedSugarId == R.id.radio_sugar_low) {
-                healthSummary.append("Low\n");
-            } else {
-                healthSummary.append("Selected but not specified (High/Low)\n");
+        // Listener for Cholesterol CheckBox
+        checkBoxCholesterol.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            radioGroupCholesterolLevel.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+            if (!isChecked) {
+                radioGroupCholesterolLevel.clearCheck();
             }
-        } else {
-            healthSummary.append("Not selected\n");
-        }
+        });
 
-        healthSummary.append("- Cholesterol: ");
-        if (checkBoxCholesterol.isChecked()) {
-            int selectedCholesterolId = radioGroupCholesterol.getCheckedRadioButtonId();
-            if (selectedCholesterolId == R.id.radio_cholesterol_high) {
-                healthSummary.append("High\n");
-            } else if (selectedCholesterolId == R.id.radio_cholesterol_low) {
-                healthSummary.append("Low\n");
-            } else {
-                healthSummary.append("Selected but not specified (High/Low)\n");
-            }
-        } else {
-            healthSummary.append("Not selected\n");
-        }
-
-        Toast.makeText(this, healthSummary.toString(), Toast.LENGTH_LONG).show();
+        // No special listener for Ulcer checkbox if it doesn't have sub-options
     }
 }

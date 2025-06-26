@@ -30,6 +30,7 @@
 
     <!-- String for Ingredient Selection Page -->
     <string name="hint_please_type_here">Please Type Here</string>
+    <string name="make_your_food_title">Make Your Food</string> <!-- Added -->
 
     <!-- Strings for Health Tips Page -->
     <string name="health_tips_title">Health Tips</string>
@@ -70,7 +71,7 @@
     <string name="order_prepared_message">Your Order Is started to prepare.\nplease keep calm and enjoy the meal.\nThank You For Being With Us</string>
     <string name="button_home_text">Home</string>
 
-    <!-- NEW Strings for Card Payment Page -->
+    <!-- Strings for Card Payment Page -->
     <string name="card_payment_title">Card Details</string>
     <string name="label_card_number">Card Number</string>
     <string name="hint_card_number">Enter card number</string>
@@ -81,5 +82,20 @@
     <string name="label_card_holder_name">Card Holder Name</string>
     <string name="hint_card_holder_name">Enter card holder name</string>
     <string name="button_pay_now_text">Pay Now</string>
+
+    <!-- Strings for Low/High Sugar Menu Pages -->
+    <string name="low_sugar_menu_title">Good For Low Sugar</string> <!-- Added -->
+    <string name="high_sugar_menu_title">Good For High Sugar</string> <!-- Added -->
+
+    <!-- Strings for Low/High Cholesterol Menu Pages -->
+    <string name="low_cholesterol_menu_title">Good For Low Cholesterol</string> <!-- Added -->
+    <string name="high_cholesterol_menu_title">Good For High Cholesterol</string> <!-- Added -->
+
+    <!-- Strings for Ulcer Menu Page -->
+    <string name="ulcer_menu_title">Good For Ulcer</string> <!-- Added -->
+
+    <!-- Strings for Custom Order Payment Info Page -->
+    <string name="custom_order_payment_info">Please ask your payment details to call our customer care number. because cost of your food recipe is fixed by the chef. (online payment not accept for this one. you can done with this deal cash on delivery)</string> <!-- Added -->
+    <string name="button_call_text">Call</string> <!-- Added -->
 
 </resources>

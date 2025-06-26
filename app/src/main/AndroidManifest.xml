@@ -64,5 +64,33 @@
         <activity android:name=".CardPaymentActivity"
             android:exported="true">
         </activity>
+        <activity android:name=".LowBPFoodMenuActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".HighBPFoodMenuActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".LowSugarFoodMenuActivity"
+            android:exported="true">
+        </activity>
+
+        <!-- NEW: Declare HighSugarFoodMenuActivity -->
+        <activity android:name=".HighSugarFoodMenuActivity"
+            android:exported="true">
+        </activity>
+        <!-- NEW: Declare LowCholesterolFoodMenuActivity -->
+        <activity android:name=".LowCholesterolFoodMenuActivity"
+            android:exported="true">
+        </activity>
+        <!-- NEW: Declare HighCholesterolFoodMenuActivity -->
+        <activity android:name=".HighCholesterolFoodMenuActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".UlcerFoodMenuActivity"
+            android:exported="true">
+        </activity>
+        <activity android:name=".CustomOrderPaymentInfoActivity"
+            android:exported="true">
+        </activity>
     </application>
 </manifest>

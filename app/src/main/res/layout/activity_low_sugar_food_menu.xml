@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/tasty_roots_primary_background"
+    tools:context=".LowSugarFoodMenuActivity">
+
+    <!-- Menu Title for Low Sugar -->
+    <TextView
+        android:id="@+id/textView_low_sugar_menu_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="Good For Low Sugar"
+        android:textColor="@color/tasty_roots_accent_yellow"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Scrollable content for menu items -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginBottom="16dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_low_sugar_menu_back"
+        app:layout_constraintTop_toBottomOf="@+id/textView_low_sugar_menu_title">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Food Item 1: Quinoa Salad -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_card_background"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imageView_low_sugar_food1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_quinoa_salad"
+                        android:contentDescription="Quinoa Salad"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_low_sugar_food1_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Quinoa Salad"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_low_sugar_food1"
+                        app:layout_constraintTop_toTopOf="@+id/imageView_low_sugar_food1" />
+
+                    <TextView
+                        android:id="@+id/textView_low_sugar_food1_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Rs 800.00"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_low_sugar_food1"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_low_sugar_food1_name" />
+
+                    <Button
+                        android:id="@+id/button_place_order_low_sugar_food1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/tasty_roots_button_background"
+                        android:text="Place Order"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        app:cornerRadius="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_low_sugar_food1_price" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Food Item 2: Grilled Chicken Breast -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_card_background"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imageView_low_sugar_food2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_chicken_breast"
+                        android:contentDescription="Grilled Chicken Breast"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_low_sugar_food2_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Grilled Chicken Breast"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_low_sugar_food2"
+                        app:layout_constraintTop_toTopOf="@+id/imageView_low_sugar_food2" />
+
+                    <TextView
+                        android:id="@+id/textView_low_sugar_food2_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Rs 1200.00"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_low_sugar_food2"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_low_sugar_food2_name" />
+
+                    <Button
+                        android:id="@+id/button_place_order_low_sugar_food2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/tasty_roots_button_background"
+                        android:text="Place Order"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        app:cornerRadius="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_low_sugar_food2_price" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Food Item 3: Vegetable Stir-fry -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="5dp">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rounded_card_background"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:id="@+id/imageView_low_sugar_food3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/img_vegetable_stir_fry"
+                        android:contentDescription="Vegetable Stir-fry"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView_low_sugar_food3_name"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:text="Vegetable Stir-fry"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_low_sugar_food3"
+                        app:layout_constraintTop_toTopOf="@+id/imageView_low_sugar_food3" />
+
+                    <TextView
+                        android:id="@+id/textView_low_sugar_food3_price"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="4dp"
+                        android:text="Rs 750.00"
+                        android:textColor="@color/black"
+                        android:textSize="18sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toEndOf="@+id/imageView_low_sugar_food3"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_low_sugar_food3_name" />
+
+                    <Button
+                        android:id="@+id/button_place_order_low_sugar_food3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:backgroundTint="@color/tasty_roots_button_background"
+                        android:text="Place Order"
+                        android:textAllCaps="false"
+                        android:textColor="@android:color/white"
+                        android:textSize="14sp"
+                        app:cornerRadius="8dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/textView_low_sugar_food3_price" />
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Back Button -->
+    <Button
+        android:id="@+id/button_low_sugar_menu_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/tasty_roots_button_background"
+        android:paddingHorizontal="32dp"
+        android:paddingVertical="12dp"
+        android:text="Back"
+        android:textAllCaps="false"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:cornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
