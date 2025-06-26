@@ -1,6 +1,7 @@
 package com.s23010743.tatyrootsfinal;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.auth.FirebaseAuth;
+import java.util.Random; // Import Random class
 
 public class HomePage extends AppCompatActivity {
 
@@ -17,12 +19,16 @@ public class HomePage extends AppCompatActivity {
     private Button buttonDesiredFood;
     private Button buttonHealthyFood;
     private Button buttonMakeMyFood;
-    private Button buttonNews;
+    private Button buttonVibes; // Changed variable name for clarity
     private Button buttonHealthyTips;
     private TextView textViewAppTitle;
 
     // Firebase Authentication instance (optional, for logout)
     private FirebaseAuth mAuth;
+
+    // Array of daily lucky quotes
+    private String[] dailyLuckyQuotes;
+    private Random random;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,8 +37,17 @@ public class HomePage extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        // Initialize Random for quotes
+        random = new Random();
+
+        // Initialize UI elements
         initViews();
+
+        // Set up listeners
         setupListeners();
+
+        // Initialize quotes array from string resources
+        dailyLuckyQuotes = getResources().getStringArray(R.array.daily_lucky_quotes_array);
     }
 
     /**
@@ -43,7 +58,7 @@ public class HomePage extends AppCompatActivity {
         buttonDesiredFood = findViewById(R.id.button_desiredFood);
         buttonHealthyFood = findViewById(R.id.button_healthyFood);
         buttonMakeMyFood = findViewById(R.id.button_makeMyFood);
-        buttonNews = findViewById(R.id.button_news);
+        buttonVibes = findViewById(R.id.button_news); // Still uses the original 'button_news' ID from XML
         buttonHealthyTips = findViewById(R.id.button_healthyTips);
     }
 
@@ -75,21 +90,34 @@ public class HomePage extends AppCompatActivity {
             }
         });
 
-        buttonNews.setOnClickListener(new View.OnClickListener() {
+        // Listener for the "Vibes" button
+        buttonVibes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(HomePage.this, "News functionality coming soon!", Toast.LENGTH_SHORT).show();
+                displayRandomLuckyQuote();
             }
         });
 
         buttonHealthyTips.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Navigate to the HealthTipsActivity
                 Intent intent = new Intent(HomePage.this, HealthTipsActivity.class);
                 startActivity(intent);
             }
         });
+    }
+
+    /**
+     * Displays a random daily lucky quote as a Toast.
+     */
+    private void displayRandomLuckyQuote() {
+        if (dailyLuckyQuotes != null && dailyLuckyQuotes.length > 0) {
+            int randomIndex = random.nextInt(dailyLuckyQuotes.length);
+            String quote = dailyLuckyQuotes[randomIndex];
+            Toast.makeText(this, "Vibe Check: " + quote, Toast.LENGTH_LONG).show();
+        } else {
+            Toast.makeText(this, "No vibes available today.", Toast.LENGTH_SHORT).show();
+        }
     }
 
     // Optional: Add a logout method if you want to include a logout button/menu item
@@ -100,7 +128,7 @@ public class HomePage extends AppCompatActivity {
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
             startActivity(intent);
             finish();
-            Toast.makeText(HomePage.this, "Logged out successfully!", Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "Logged out successfully!", Toast.LENGTH_SHORT).show();
         }
     }
 }

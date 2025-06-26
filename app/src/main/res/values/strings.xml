@@ -12,12 +12,9 @@
     <string name="login_failed_message">Login Failed: %1$s</string>
     <string name="empty_fields_error">Email and Password cannot be empty.</string>
 
-    <!-- New Strings for SignUpPage -->
+    <!-- Strings for SignUpPage -->
     <string name="hint_phone_number">Phone number</string>
     <string name="hint_nick_name">Nick Name</string>
-    <!-- ... existing strings ... -->
-    <string name="health_tips_title">Health Tips</string>
-    <string name="button_refresh_tips">Refresh Tips</string>
 
     <!-- Strings for Health Status Page -->
     <string name="age_limit_label">Age Limit</string>
@@ -30,5 +27,59 @@
     <string name="level_low">Low</string>
     <string name="button_back_text">Back</string>
     <string name="button_next_text">Next</string>
+
+    <!-- String for Ingredient Selection Page -->
     <string name="hint_please_type_here">Please Type Here</string>
+
+    <!-- Strings for Health Tips Page -->
+    <string name="health_tips_title">Health Tips</string>
+    <string name="button_refresh_tips">Refresh Tips</string>
+
+    <!-- String for Vibes button -->
+    <string name="button_vibes_text">Vibes</string>
+
+    <!-- Array of daily lucky quotes -->
+    <string-array name="daily_lucky_quotes_array">
+        <item>"The only way to do great work is to love what you do." - Steve Jobs</item>
+        <item>"Believe you can and you're halfway there." - Theodore Roosevelt</item>
+        <item>"The future belongs to those who believe in the beauty of their dreams." - Eleanor Roosevelt</item>
+        <item>"Success is not final, failure is not fatal: It is the courage to continue that counts." - Winston S. Churchill</item>
+        <item>"The best way to predict the future is to create it." - Peter Drucker</item>
+        <item>"Happiness is not something ready made. It comes from your own actions." - Dalai Lama XIV</item>
+        <item>"The only limit to our realization of tomorrow will be our doubts of today." - Franklin D. Roosevelt</item>
+        <item>"Keep your face always toward the sunshine—and shadows will fall behind you." - Walt Whitman</item>
+        <item>"The secret of getting ahead is getting started." - Mark Twain</item>
+        <item>"What you get by achieving your goals is not as important as what you become by achieving your goals." - Zig Ziglar</item>
+    </string-array>
+
+    <!-- Strings for Food Detail Page -->
+    <string name="food_image_description">Image of the food item</string>
+    <string name="button_place_order_text">Place Order</string>
+
+    <!-- Strings for Order Details Page -->
+    <string name="order_details_title">Order Details</string>
+    <string name="label_name">Name</string>
+    <string name="label_address">Address</string>
+    <string name="button_add_location">Add location</string>
+    <string name="label_payment_method">Payment Method</string>
+    <string name="payment_cash_on_delivery">Cash on Delivery</string>
+    <string name="payment_card_payment">Card Payment</string>
+    <string name="button_confirm_order">Confirm Order</string>
+
+    <!-- Strings for Order Confirmation Page -->
+    <string name="order_prepared_message">Your Order Is started to prepare.\nplease keep calm and enjoy the meal.\nThank You For Being With Us</string>
+    <string name="button_home_text">Home</string>
+
+    <!-- NEW Strings for Card Payment Page -->
+    <string name="card_payment_title">Card Details</string>
+    <string name="label_card_number">Card Number</string>
+    <string name="hint_card_number">Enter card number</string>
+    <string name="label_expiry_date">Expiry Date</string>
+    <string name="hint_expiry_date">MMYY</string>
+    <string name="label_cvv">CVV</string>
+    <string name="hint_cvv">XXX</string>
+    <string name="label_card_holder_name">Card Holder Name</string>
+    <string name="hint_card_holder_name">Enter card holder name</string>
+    <string name="button_pay_now_text">Pay Now</string>
+
 </resources>
