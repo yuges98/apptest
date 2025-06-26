@@ -12,11 +12,11 @@ import androidx.appcompat.app.AppCompatActivity;
 public class CustomOrderPaymentInfoActivity extends AppCompatActivity {
 
     private Button buttonCall;
-    private Button buttonNext; // Assuming 'next' might lead to general order confirmation or home
+    private Button buttonNext;
     private Button buttonBack;
 
-    // Customer care number (example)
-    private static final String CUSTOMER_CARE_NUMBER = "tel:0711234567"; // Replace with your actual number
+    // The customer care number you provided
+    private static final String CUSTOMER_CARE_NUMBER = "tel:0762845431";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,25 +40,25 @@ public class CustomOrderPaymentInfoActivity extends AppCompatActivity {
                 // Initiate a phone call
                 Intent dialIntent = new Intent(Intent.ACTION_DIAL);
                 dialIntent.setData(Uri.parse(CUSTOMER_CARE_NUMBER));
+
+                // Check if there's any app that can handle this intent
                 if (dialIntent.resolveActivity(getPackageManager()) != null) {
                     startActivity(dialIntent);
                 } else {
-                    Toast.makeText(CustomOrderPaymentInfoActivity.this, "No phone app found to make a call.", Toast.LENGTH_SHORT).show();
+                    // This Toast indicates that no dialer app was found on the device/emulator
+                    Toast.makeText(CustomOrderPaymentInfoActivity.this, "No phone or dialer app found on this device.", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
-        // The "Next" button on this page will likely lead to the home screen or a generic confirmation
         buttonNext.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // For a custom order, payment is handled offline.
-                // Redirect to HomePage or a general order confirmation indicating offline payment
-                Toast.makeText(CustomOrderPaymentInfoActivity.this, "Custom order submitted. Please call to confirm payment.", Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(CustomOrderPaymentInfoActivity.this, HomePage.class);
-                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK); // Clear back stack
+                // Redirect to OrderConfirmationActivity
+                Toast.makeText(CustomOrderPaymentInfoActivity.this, "Custom order submitted!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(CustomOrderPaymentInfoActivity.this, OrderConfirmationActivity.class);
                 startActivity(intent);
-                finish(); // Finish this activity
+                finish(); // Finish this activity so user can't go back to it using back button
             }
         });
 

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
+
     <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- REQUIRED PERMISSION FOR MAKING PHONE CALLS -->
+    <uses-permission android:name="android.permission.CALL_PHONE" />
 
     <application
         android:allowBackup="true"
@@ -40,7 +43,6 @@
         <activity android:name=".HealthStatusActivity"
             android:exported="true">
         </activity>
-        <!-- NEW: Declare IngredientSelectionActivity -->
         <activity android:name=".IngredientSelectionActivity"
             android:exported="true">
         </activity>
@@ -74,15 +76,12 @@
             android:exported="true">
         </activity>
 
-        <!-- NEW: Declare HighSugarFoodMenuActivity -->
         <activity android:name=".HighSugarFoodMenuActivity"
             android:exported="true">
         </activity>
-        <!-- NEW: Declare LowCholesterolFoodMenuActivity -->
         <activity android:name=".LowCholesterolFoodMenuActivity"
             android:exported="true">
         </activity>
-        <!-- NEW: Declare HighCholesterolFoodMenuActivity -->
         <activity android:name=".HighCholesterolFoodMenuActivity"
             android:exported="true">
         </activity>
